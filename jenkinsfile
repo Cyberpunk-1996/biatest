@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Setup') {
             steps {
-                sh "pipx install -r requirements.txt"
+                sh "pip install -r requirements.txt --break-system-packages "
             }
         }
         stage('Test') {
