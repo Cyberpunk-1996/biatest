@@ -3,6 +3,7 @@ pipeline {
         docker {
             image 'python:3.9-slim'
             args '-u root --privileged'
+            args 'sudo usermod -aG docker $USER'
          }
         } 
     stages {
