@@ -34,6 +34,16 @@ pipeline {
                 sh "pytest"
                 
             }
+        }
+
+        stage("Deployment") {
+            input {
+               message "Do you want to proceed with the deployment"
+               ok "yes"
+            }
+            steps {
+                sh "echo Deployment is completed after approval"
+            }
         }    
             
     }
