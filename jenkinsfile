@@ -3,10 +3,13 @@ pipeline {
     stages {
         stage('Setup') {
             steps {
-                sh "pip install -r requirements.txt --break-system-packages "
+                sh "apt install python3"
+                sh "apt install python3-pytest -y"
+                sh "apt install python3-pip -y"
+                sh "pip install -r requirements.txt --break-system-packages"
             }
         }
-        stage('Test') {
+        stage('Testing Flask application') {
             steps {
                 sh "pytest"
                 
