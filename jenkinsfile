@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        EC2-LOGIN = credentials('ec2login')
+    }
     stages {
         stage('Environment variable & Credetials') {
             steps {
@@ -9,6 +12,11 @@ pipeline {
                     echo ${mypassword}
                     '''
                 }
+                sh '''
+                "echo Username: ${EC2-LOGIN_USR}"
+                "echo Password: ${EC2-LOGIN_PSW}
+                '''
+
                 sh "echo ${env.JENKINS_URL}"
             }
 
