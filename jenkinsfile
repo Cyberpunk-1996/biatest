@@ -1,6 +1,12 @@
 pipeline {
     agent any
     stages {
+        stage('Environment variable') {
+            steps {
+                sh "echo ${env.JENKINS_URL}"
+            }
+
+        }
         stage('Setup') {
             steps {
                 sh "sudo apt install python3"
