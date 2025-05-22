@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        EC2-LOGIN = credentials('ec2login')
+        EC2-LOGIN = Credentials('ec2login')
     }
     stages {
         stage('Environment variable & Credetials') {
