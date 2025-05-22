@@ -1,8 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage('Environment variable') {
+        stage('Environment variable & Credetials') {
             steps {
+                withCredentials([usernamePassword(credentialsId: 'server-creds', usernameVariable: "myuser", passwordVariable: "mypassword")]) {
+                    sh '''
+                    echo ${myuser}
+                    echo ${mypassword}
+                    '''
+                }
                 sh "echo ${env.JENKINS_URL}"
             }
 
